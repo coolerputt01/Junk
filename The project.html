@@ -1,0 +1,146 @@
+<DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>http://info.cern.ch</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+      <style>
+        *{
+          font-family: "Quicksand",sans-serif;
+          margin:0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body{
+          transition: all 1000ms;
+          animation: slideup 0.4s linear forwards;
+        }
+        @keyframes slideup{
+          from{
+            opacity: 0.3;
+          }
+          to{
+            opacity:1;
+          }
+        }
+        h1{
+          text-align: center;
+          padding: 10px;
+        }
+        h3{
+          text-align: center;
+          padding: 10px;
+        }
+        p{
+          text-align:center;
+          line-height: 25px;
+          width:90%;
+          padding:5px;
+        }
+        b{
+          padding:5px;
+          color:#f2f1f2;
+        }
+        li:nth-child(even){
+          padding:10px;
+          background-color: #024CAA;
+          color:#f2f1f2;
+          list-style-type:none;   
+          }
+        li{
+          animation: slide 1s linear forwards;
+        }
+        li:nth-child(odd){
+          padding:10px;
+          background-color: #091057;
+          color:#f2f1f2;
+          list-style-type:none;
+        }
+        li:nth-child(1){
+          animation-delay:0.2s;
+        }
+        li:nth-child(2){
+          animation-delay:0.4s;
+        }
+        li:nth-child(3){
+          animation-delay:0.6s;
+        }
+        li:nth-child(4){
+          animation-delay:0.8s;
+        }
+        li:nth-child(5){
+          animation-delay:1s;
+        }
+       li:nth-child(6){
+          animation-delay:1.2s;
+        }
+      li:nth-child(7){
+          animation-delay:1.4s;
+        }
+      li:nth-child(8){
+          animation-delay:1.6s;
+        }
+        ol{
+          display:flex;
+          flex-direction:column;
+        }
+        @keyframes slide{
+          from{
+            transform: translateX(500px);
+           opacity: 0.3;
+          }
+          to{
+            transform: translateX(0px);
+           opacity: 1;
+          }
+        }
+        
+        </style>
+      </head>
+      <body>
+       <h1>World Wide Web</h1>
+<p>The WorldWideWeb (W3) is a wide-area <a href="#">hypermedia</a> information retrieval initiative aiming to give universal access to a large universe of documents.</p>
+<p>Everything there is online about W3 is linked directly or indirectly to this document, including an <a href="#">executive summary</a>of the project, <a href="#">Mailing lists</a> , <a href="#" >Policy</a> , November's <a>W3 news</a> , <a href="#">Frequently Asked Questions</a> .</p>
+
+<h3>What's out there?</h3>
+<p>Pointers to the world's online information, subjects , W3 servers, etc.
+</p>
+<ol>
+<li>
+<b>
+Help
+</b>
+on the browser you are using
+</li>
+<li>
+<b>Software Products</b>
+A list of W3 project components and their current state. (e.g. Line Mode ,X11 Viola , NeXTStep , Servers , Tools , Mail robot , Library )
+</li>
+<li>
+<b>Technical</b>
+Details of protocols, formats, program internals etc
+</li>
+<li>
+<b>Bibliography</b>
+Paper documentation on W3 and references.
+</li>
+<li>
+<b>People</b>
+A list of some people involved in the project.
+</li>
+<li>
+<b>History</b>
+A summary of the history of the project.
+</li>
+<li>
+<b>How can I help ?</b>
+If you would like to support the web..
+</li>
+<li>
+<b>Getting code</b>
+Getting the code by <a href="#">anonymous FTP</a> , etc.
+</li>
+</ol>
+      </body>
+    <html>
