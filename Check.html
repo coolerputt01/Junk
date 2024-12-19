@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <p class="display"></p>
+<script>
+  const sentencearr = ["Sentence 1", "Sentence 2"];
+  const textDisplay = document.querySelector('.display');
+  var timerCount = 1000;
+  //This is 1sec;
+  var timer = 0;
+  var time;
+  while (timer != timerCount) {
+    time += (timer + timerCount);
+    timer = timerCount / 5;
+  }
+  if (time >= 2000) {
+    textDisplay.innerHTML = sentencearr[0];
+  } else {
+    textDisplay.innerHTML = sentencearr[1];
+  }
+</script>
+</body>
+
+</html>
