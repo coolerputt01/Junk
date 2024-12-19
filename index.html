@@ -1,14 +1,229 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" href="styles/style.css"/>
-  <title>Hello, World!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegramclone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS',sans-serif;
+      
+    }
+    body{
+      background: lightgrey;
+    }
+    .header{
+      background: #379;
+      width:100%;
+      height:10vh;
+      display: flex;
+      align-items: center;
+      color:white;
+      justify-content: space-around;
+    }
+    .back{
+      font-size:2em;
+      text-align:left;
+      padding:10px;
+    }
+    .header-image{
+      width:11%;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      padding:4px;
+    }
+    .contact{
+      display: flex;
+      flex-direction: column;
+      padding:2px;
+    }
+    .name{
+      font-size:1.3em;
+      font-weight: bold;
+    }
+    .state{
+      font-size:0.8em;
+    }
+    .menu{
+      display:flex;
+      flex-direction: column;
+      font-size:1.5em;
+      margin-left:20%;
+      font-weight: bold;
+    }
+    .menu-text{
+      line-height: 7px;
+    }
+    .chat{
+      width:100%;
+      height: 110%;
+      background: lightgrey;
+      display: flex;
+      flex-direction: column;
+    }
+    .input{
+  background-color: white;
+  height: 10vh;
+  padding: 5px 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+    }
+    .input-text:focus{
+      border: none;
+      outline:none;
+    }
+    .input-text{
+      border: none;
+      font-size: 1.1em;
+      margin:3px;
+      padding:10px;
+    }
+    .input p{
+      font-size: 1.1em;
+      padding:3px;
+    }
+    .input .voice{
+      margin:10px;
+    }
+    .send{
+      display:none;
+    }
+    .chat-bot{
+      display: flex;
+      justify-content: center;
+      flex-direction:column;
+      width:10em;
+      background: aliceblue;
+      padding:10px 10px;
+      border-radius: 10%;
+      border-bottom-right-radius: 0px;
+      flex-grow: flex-end;
+      margin: 15px;
+    }
+    .person{
+      display: flex;
+      justify-content: center;
+      flex-direction:column;
+      width:10em;
+      background: lightgreen;
+      padding:10px 10px;
+      border-radius: 10%;
+      border-bottom-right-radius: 0px;
+      flex-grow: flex-end;
+      margin: 15px;
+      margin-left:50%;
+    }
+    .time{
+      width:100%;
+      text-align: right;
+      font-size:0.7em;
+      font-style: italic;
+      font-weight: bold;
+      opacity:0.3;
+    }
+  </style>
 </head>
 <body>
-  <h1>
-    Hello, World!
-  </h1>
+	<header class="header">
+	  <p class="back"><i class="fa-solid fa-arrow-left"></i></p>
+
+	  <img src="Dummyimage.jpg" alt="dummyimage" class="header-image">
+	  <div class="contact">
+	  <div class="info">
+	  <p class="name">Mary Jackson</p>
+	  <p class="state">Online</p>
+	  </div>
+	  </div>
+	  <div class="menu">
+	    <i class="fa-solid fa-ellipsis-vertical"></i>
+	  </div>
+	</header>
+	<section class="chat">
+	</section>
+	<div class="input">
+	  <p class="emoji"><i class="fa-regular fa-face-smile"></i></p>
+	  <input type="text" placeholder="Message" class="input-text">
+	  <p class="thumbnail"><i class="fa-solid fa-paperclip"></i></p>
+	  <p class="voice"><i class="fa-solid fa-microphone"></i></p>
+	  <p class="send"> <i class="fa-solid fa-paper-plane"></i> </p>
+	</div>
+	<script>
+	  const send = document.querySelector('.send');
+	  const voice = document.querySelector('.voice');
+	  const input = document.querySelector('.input-text');
+	  const personmsg = document.querySelector('.person-text');
+	  const chat = document.querySelector('.chat');
+	  let isButtonClicked = false;
+function getTime() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+
+  // Format to ensure two digits (e.g., 09:05)
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+
+  return `${hours}:${minutes}`;
+}
+
+input.addEventListener('focus', function () {
+  if (input.value.length > 0) {
+    send.style.display = 'block';
+    voice.style.display = 'none';
+  }
+});
+
+input.addEventListener('input', function () {
+  if (input.value.length > 0) {
+    send.style.display = 'block';
+    voice.style.display = 'none';
+  } else {
+    send.style.display = 'none';
+    voice.style.display = 'block';
+  }
+});
+
+input.addEventListener('blur', function () {
+  setTimeout(function () {
+    if (!isButtonClicked) {
+      send.style.display = 'none';
+      voice.style.display = 'block';
+    }
+    isButtonClicked = false;
+  }, 100);  // Delay to allow button click
+});
+	  send.addEventListener('click',function(){
+	    isButtonClicked = true;
+	    if(input.value.length > 0){
+	    let personmsgprovid = `	  
+	    <div class="person">
+	    <p class="person-text">${input.value.trim()}</p>
+	    <p class="time">${getTime()}</p>
+	    </div>`;
+
+	    chat.insertAdjacentHTML("beforeend",personmsgprovid);
+	    
+	     let chatmsgprovid = `	  
+	    <div class="chat-bot">
+	    <p class="chat-bot-text">${input.value.trim()}</p>
+	    <p class="time">${getTime()}</p>
+	    </div>`;
+	    chat.insertAdjacentHTML("beforeend",chatmsgprovid);
+	    input.value = '';
+	    }
+
+	  });
+	</script>
 </body>
 </html>
